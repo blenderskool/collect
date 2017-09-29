@@ -74,10 +74,10 @@ var chartSavings = new Chart(chtsav, {
         datasets: [{
             data: netSavings,
             backgroundColor: [
-                'rgba(244, 147, 188, 0.6)'
+                'rgba(235, 211, 110, 0.6)'
             ],
             borderColor: [
-                'rgba(244, 147, 188, 0.6)'
+                'rgba(235, 211, 110, 0.6)'
             ],
             borderWidth: 1
         }]
@@ -112,10 +112,10 @@ var chartWithdraw = new Chart(chtwithdraw, {
         datasets: [{
             data: withdrawals,
             backgroundColor: [
-                'rgba(235, 211, 110, 0.6)'
+                'rgba(244, 147, 188, 0.6)'
             ],
             borderColor: [
-                'rgba(235, 211, 110, 0.6)'
+                'rgba(244, 147, 188, 0.6)'
             ],
             borderWidth: 1
         }]
