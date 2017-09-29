@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="resources/css/reset.min.css">
+    <link rel="stylesheet" href="resources/css/styles.css">
+
+    <title>Collect</title>
+  </head>
+  <body>
+
+    <ul class="menu" id="menu">
+      <li><a href="timeline.html">Timeline</a></li>
+      <li onclick="localStorage.setItem('appCollect', ''); window.location.reload();">Clear Data</li>
+
+      <ul class="credits">
+        <li onclick="window.location.href = 'http://www.blenderskool.cf/';">Coded by Akash Hamirwasia</li>
+        <li onclick="window.location.href = 'https://www.mackenziechild.me/';">Designed by Mackenzie Child</li>
+
+      </ul>
+    </ul>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Nav Bar -->
+    <nav>
+      <div class="menu-icon" id="btnMenu">
+        <i class="material-icons">sort</i>
+      </div>
+
+      <div class="menu-icon" id="btnClose" style="display:none;">
+        <i class="material-icons">close</i>
+      </div>
+
+      <div class="savings-container">
+        <div class="savings" id="txtSavings">
+          $12,000
+        </div>
+        <div class="in-savings">
+          in savings
+        </div>
+      </div>
+    </nav>
+
+    <div class="pig-illustration">
+      <img src="resources/images/pig.png" alt="">
+    </div>
+
+    <div class="feed-form" style="display: none;">
+      <div class="type-toggle">
+        <span>Deposit</span>
+        <input type="checkbox" class="toggle" id="toggleType">
+        <span>Withdraw</span>
+      </div>
+      <input type="number" placeholder="Amount" min="0" id="inpAmount">
+    </div>
+
+    <div class="button-wrapper">
+      <button type="button" name="feed" id="btnFeed">feed</button>
+    </div>
+
+    <ul class="timeline" id="lstTimeline">
+      <li class="deposit">
+        <span class="title">Deposit of $225</span>
+        <span class="time">Nov 12th, 2015</span>
+        <span class="amount">$12,854</span>
+      </li>
+      <li class="withdraw">
+        <span class="title">Deposit of $225</span>
+        <span class="time">Nov 12th, 2015</span>
+        <span class="amount">$12,854</span>
+      </li>
+    </ul>
+    <a class="view-timeline" href="timeline.html">
+      View Full Timeline
+    </a>
+
+    <div class="charts">
+      <div>
+        <canvas id="chartWithdraw" width="500" height="200"></canvas>
+      </div>
+      <div>
+        <canvas id="chartDeposits" width="500" height="200"></canvas>
+      </div>
+      <div class="chart-last">
+        <canvas id="chartSavings" width="500" height="200"></canvas>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js" charset="utf-8"></script>
+    <script src="resources/js/utilities.js" charset="utf-8"></script>
+    <script src="resources/js/app.js" charset="utf-8"></script>
+  </body>
+</html>

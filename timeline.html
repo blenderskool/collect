@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="resources/css/reset.min.css">
+    <link rel="stylesheet" href="resources/css/styles.css">
+
+    <title>Timeline | Collect</title>
+  </head>
+  <body>
+
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li onclick="localStorage.setItem('appCollect', ''); window.location.reload();">Clear Data</li>
+
+      <ul class="credits">
+        <li onclick="window.location.href = 'http://www.blenderskool.cf/';">Coded by Akash Hamirwasia</li>
+        <li onclick="window.location.href = 'https://www.mackenziechild.me/';">Designed by Mackenzie Child</li>
+
+      </ul>
+    </ul>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Nav Bar -->
+    <nav>
+      <div class="menu-icon" id="btnMenu">
+        <i class="material-icons">sort</i>
+      </div>
+
+      <div class="savings-container">
+        <div class="savings" id="txtSavings">
+          $12,000
+        </div>
+        <div class="in-savings">
+          in savings
+        </div>
+      </div>
+    </nav>
+
+    <ul class="timeline" id="lstTimeline">
+    </ul>
+
+    <script src="resources/js/utilities.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      var collect = localStorage.getItem('appCollect') ? JSON.parse(localStorage.getItem('appCollect')) : {
+        timeline: [
+        ]
+      };
+
+      var savings = 0;
+      for (var i=0; i < collect.timeline.length; i++) {
+        var amount = collect.timeline[i].amount;
+        if (collect.timeline[i].type == 'deposit')
+          savings = savings + amount;
+        else
+          savings = savings - amount;
+      }
+      document.getElementById('txtSavings').innerText = savings.toLocaleString("en-US", { style: "currency", currency: "USD"}).split('.')[0];
+
+      renderTimeLine(collect.timeline);
+    </script>
+  </body>
+</html>
