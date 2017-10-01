@@ -159,6 +159,16 @@ document.getElementById('btnFeed').addEventListener('click', function() {
   }
 });
 
+document.getElementById('inpAmount').addEventListener('keydown', function(e) {
+  if (e.keyCode === 13) {
+    var type = document.getElementById('toggleType').checked ? 'withdraw' : 'deposit';
+    if (this.value)
+      newFeed(Number(this.value), type);
+
+    closeFeedForm();
+  }
+});
+
 document.getElementById('toggleType').addEventListener('change', function() {
   var parent = this.parentElement;
   var button = document.getElementById('btnFeed');
